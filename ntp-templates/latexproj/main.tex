@@ -1,0 +1,101 @@
+
+%%% Local Variables:
+%%% mode: LaTeX
+%%% TeX-master: t
+%%% End:
+\documentclass[9pt]{article}
+\usepackage[letterpaper,top=0.5in,bottom=0.5in,left=1.2in,right=1.2in,includeheadfoot]{geometry}
+\usepackage{times}
+% Paragraph spacing
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt plus 1pt}
+
+% Compact sections
+\usepackage{titlesec}
+\titlespacing*{\section}{0pt}{*2}{*1}
+\titlespacing*{\subsection}{0pt}{*1.5}{*0.5}
+
+% Libertine
+\usepackage{libertine}
+% Times
+% \usepackage{times}              % main text
+% \usepackage{mathptmx}           % math in Times
+
+
+
+\usepackage{amssymb,amsmath, bbm}
+\usepackage{fancyhdr}
+\usepackage{tabu}
+\usepackage{enumerate}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{multirow,array}
+\usepackage{sgame}
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Ind}{\mathbbm{1}}
+\newcommand{\Var}{\text{Var}}
+\newcommand*{\Perm}[2]{{}^{#1}\!P_{#2}}%
+\newcommand*{\Comb}[2]{{}^{#1}C_{#2}}%
+\newcommand{\Sign}{\text{sign}}
+
+\newcommand{\multichoose}[2]{\left(\!\genfrac{(}{)}{0pt}{}{#1}{#2}\!\right)}
+\renewcommand{\baselinestretch}{1.3}
+\newcommand{\HomeworkNo}{1}
+\pagestyle{fancy}
+\fancyhead{}
+\fancyfoot[L]{\MyName{}}
+\fancyfoot[R]{Problem Set \HomeworkNo{}}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\frac}[2]{\dfrac{#1}{#2}}
+\setlength{\headheight}{0pt}
+
+\fancypagestyle{firstpage}{
+  \fancyhead{}
+  \fancyfoot{}
+}
+
+%% Please enter your name and Recitation directly below
+
+\newcommand{\MyName}{Hanxi Chen}
+\newcommand{\CollaboratorNames}{}
+
+
+%% Do not modify the name below here
+\newcommand{\MyNameCheck}[1]
+{\ifnum\pdfstrcmp{#1}{GENERIC NAME THAT NEEDS CHANGING}=0
+   \LARGE\textcolor{red}{#1}
+\else
+   #1
+\fi}
+\graphicspath{ {./png/} }
+\newcommand{\PrintFirstHeader}{
+  Subject \vspace{5pt} \hfill {\Large\MyNameCheck{\MyName}}
+  \\
+  {\LARGE{\textbf{Title}}}
+
+%Collaborators: \CollaboratorNames
+
+  \rule{\textwidth}{0.4pt}
+}
+\begin{document}
+\thispagestyle{firstpage}
+\PrintFirstHeader{}
+%
+%
+%
+%% ONLY MODIFY BELOW HERE (Besides entering your name and recitation
+%
+%
+Content
+%
+%
+%
+%
+%% ONLY MODIFY ABOVE HERE
+\end{document}\\\\\\
+
+ 
