@@ -1,0 +1,56 @@
+ #!/bin/bash
+ # Usage: ntp <template-type> [project-name]
+
+TEMPLATE_DIR=$HOME/templates
+
+TEMPLATE_TYPE="$1"
+PROJECT_NAME="$2"
+
+if [ -z "PROJECT_NAME" ]; then
+   PROJECT_NAME="main"
+fi
+
+if [ -z "$PROJECT_NAME" ]; then
+   PROJECT_NAME="$TEMPLATE_TYPE"
+fi
+
+latexproj() {
+  SRC="$TEMPLATE_DIR/latexproj"
+  DEST="$PWD/$PROJECT_NAME"
+
+  echo "$SRC"
+  echo "$DEST"
+  if [ ! -d "$SRC" ]; then
+    echo "Template latexproj not found in $TEMPLATE_DIR"
+    exit 1
+  fi
+
+  if [ -e "$DEST" ]; then
+    echo "Destination $DEST already exists"
+    exit 1
+  fi
+
+
+  cp -r "$SRC" "$DEST"
+  cd "$DEST" || exit
+
+  if [ -f "main.tex" ] && [ "$PROJECT_NAME" != "main" ]; then
+    mv main.tex "$PROJECT_NAME.tex"
+    if [ -f "Makefile" ]; then
+      sed -i.bak "s/^MAIN=.*/MAIN=$PROJECT_NAME/" Makefile && rm Makefile.bak
+    fi
+  fi
+
+  echo "Created LaTeX project '$PROJECT_NAME' from template 'latexproj'"
+}
+
+case "$TEMPLATE_TYPE" in
+  latexproj)
+    latexproj
+    ;;
+  *)
+    echo "Unknown template type: $TEMPLATE_TYPE"
+    echo "Available templates: latexproj"
+    exit 1
+    ;;
+esac
